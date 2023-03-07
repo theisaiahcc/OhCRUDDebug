@@ -76,5 +76,15 @@ namespace CPW219_CRUD_Troubleshooting.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public IActionResult Details(int id)
+        {
+            Student studentDetails = StudentDb.GetStudent(context, id);
+            if (studentDetails == null)
+            {
+                return NotFound();
+            }
+            return View(studentDetails);
+        }
     }
 }
