@@ -6,6 +6,7 @@
         {
             //Add student to context
             db.Students.Add(p);
+            db.SaveChanges();
             return p;
         }
 
@@ -32,7 +33,7 @@
         public static void Update(SchoolContext context, Student p)
         {
             //Mark the object as deleted
-            context.Students.Remove(p);
+            context.Students.Update(p);
 
             //Send delete query to database
             context.SaveChanges();
